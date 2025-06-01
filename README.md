@@ -30,8 +30,8 @@ A modern Flask-based video streaming platform with YouTube-style interface featu
 ### 1. Clone and Prepare
 
 ```bash
-git clone https://github.com/yourusername/flask-video-server.git
-cd flask-video-server
+git clone https://github.com/yourusername/flask.git
+cd flask
 ```
 
 ### 2. Virtual Environment
