@@ -1,83 +1,142 @@
-==================================================
-           Flask Video Streaming Server
-==================================================
+# Flask Video Streaming Server 📺
 
-This is a complete Flask-based video streaming server with a modern, YouTube-like interface. It includes dynamic previews using FFmpeg, light/dark themes, and clean styling.
+![Demo Screenshot](static/thumbnail-placeholder.png)
 
+A modern Flask-based video streaming platform with YouTube-style interface featuring hover previews, theme toggling, and dynamic video detection.
 
+---
 
-Dependencies:
-- flask==2.3.2
-- waitress==2.1.2
-- flask-cors==3.0.10
+## Features ✨
 
-Also make sure `ffmpeg` is installed and available in your system path.
+- 🎥 Auto-detection of videos in `/videos` directory  
+- 🖼️ Auto-generated preview thumbnails using FFmpeg  
+- 🌗 Light/dark theme with local storage persistence  
+- 📱 Fully responsive design (desktop & mobile)  
+- ⚡ Hover-to-preview functionality  
+- 🔍 Dynamic video scanning  
 
---------------------------------------------------
-▶️ How to Run
---------------------------------------------------
+---
 
-1. Place your video files inside the `videos/` folder.
+## Prerequisites
 
-2. Start the server:
+- Python 3.7+
+- FFmpeg installed and in system PATH
+- Basic terminal knowledge
 
-    python video_server.py
+---
 
-Or run using Waitress for production:
+## 🛠️ Installation & Setup
 
-    waitress-serve --host=0.0.0.0 --port=5000 video_server:app
+### 1. Clone and Prepare
 
-3. Open your browser and go to:
-
-    http://localhost:5000
-
---------------------------------------------------
-🎞 Features
---------------------------------------------------
-
-- Auto-detects video files (mp4, mkv, avi, etc.)
-- Auto-generates short previews using ffmpeg
-- Clean grid UI with responsive design
-- Video cards with hover preview
-- Theme toggle (light/dark) with persistence
-- Compatible with mobile and desktop
-
-
---------------------------------------------------
-📁 Notes
---------------------------------------------------
-
-- Preview generation may take a few seconds on first load.
-- You can replace the `thumbnail-placeholder.png` image with custom thumbnails.
-- The UI uses Font Awesome for icons.
-
---------------------------------------------------
-🧠 Author's Note
---------------------------------------------------
-
-This project was built to demonstrate modern Flask applications with frontend interactivity, media previewing, and full-stack integration.
-
-Feel free to customize it, add authentication, or extend it with upload features or metadata!
-
---------------------------------------------------
-👨‍💻 Contact
---------------------------------------------------
-
-Developer: Samson Charles  
-CTF Player | Python Dev | Ethical Hacker  
-WhatsApp: https://wa.me/255710008454
-
---------------------------------------------------
-📦 Requirements
---------------------------------------------------
-
-Install required Python packages with:
-
-
-   ## Installation
-
-1. Clone the repository:
 ```bash
 git clone https://github.com/yourusername/flask-video-server.git
 cd flask-video-server
+```
+
+### 2. Virtual Environment
+
+```bash
+# Create environment
+python -m venv venv
+
+# Activate (Linux/macOS)
+source venv/bin/activate
+
+# Activate (Windows)
+venv\Scripts\activate
+```
+
+### 3. Install Dependencies
+
+```bash
 pip install -r requirements.txt
+```
+
+> Required packages:
+> - Flask==2.3.2  
+> - Waitress==2.1.2  
+> - Flask-CORS==3.0.10
+
+---
+
+## ⚙️ Configuration
+
+1. Add your videos to the `videos/` folder  
+   - Supported formats: MP4, MKV, AVI, MOV, etc.
+2. (Optional) Customize the default thumbnail in `static/thumbnail-placeholder.png`
+
+---
+
+## 🚀 Launching the Server
+
+### Development Mode
+
+```bash
+python video_server.py
+```
+
+### Production Mode
+
+```bash
+waitress-serve --port=5000 video_server:app
+```
+
+Access at: [http://localhost:5000](http://localhost:5000)
+
+---
+
+## 🧩 Customization Options
+
+Enhance your server with:
+```diff
++ User authentication system
++ Video upload functionality
++ Metadata management (titles, descriptions)
++ Custom UI themes
++ Playlist support
+```
+
+---
+
+## ⚠️ Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| Previews not generating | Verify FFmpeg installation |
+| Slow first load | Allow time for thumbnail generation |
+| Video playback issues | Check file permissions and codecs |
+| Styling problems | Clear browser cache |
+
+---
+
+## 📜 Project Structure
+
+```
+flask-video-server/
+├── videos/            # Video storage
+├── static/            # Static files
+│   ├── thumbnails/    # Auto-generated previews
+│   └── styles/        # CSS files
+├── templates/         # HTML templates
+├── video_server.py    # Main application
+└── requirements.txt   # Dependencies
+```
+
+---
+
+## 📞 Contact
+
+**Developer:** Samson Charles  
+**Specialties:** Python Development · Cybersecurity · CTF  
+**Contact:** [WhatsApp](https://wa.me/255710008454)
+
+---
+
+## 📄 License
+
+**MIT License** — Free for modification and distribution
+
+---
+
+🎬 **Enjoy your self-hosted video platform!** 🍿  
