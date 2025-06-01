@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Video Browser{% endblock %}
+
+{% block content %}
+<section class="video-grid">
+    {% if current_path %}
+    <div class="breadcrumbs">
+        <a href="/">Home</a>
+        {% for part in current_path.split('/') %}
+            {% if part %}
+                / <a href="/?path={{ current_path.split(part)[0] }}{{ part }}">{{ part }}</a>
+            {% endif %}
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <h1 class="section-title">
+        {% if current_path %}
+            {{ current_path.split('/')[-1] }}
+        {% else %}
+            Video Library
+        {% endif %}
+    </h1>
+    
+    <div class="grid">
+        {% for video in videos %}
+        <div class="video-card {% if video.is_home %}home-card{% endif %} {% if video.is_up %}up-card{% endif %}">
+            <a href="{% if video.is_home or video.is_up %}?path={{ video.path }}{% else %}{% if video.is_folder %}?path={{ video.path }}{% else %}/stream/{{ video.filename }}{% endif %}{% endif %}" 
+               class="video-link">
+                <div class="thumbnail-container">
+                    <img src="{{ video.thumbnail }}" alt="{{ video.name }}" class="thumbnail">
+                    {% if not video.is_folder and not video.is_home and not video.is_up %}
+                    <div class="play-icon"><i class="fas fa-play"></i></div>
+                    {% endif %}
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">{{ video.name }}</h3>
+                    {% if video.is_folder %}
+                    <p class="video-meta">Folder</p>
+                    {% endif %}
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

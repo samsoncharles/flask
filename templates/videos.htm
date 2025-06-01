@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}{{ folder_name }} Videos{% endblock %}
+
+{% block content %}
+<section class="video-grid">
+    <div class="breadcrumbs">
+        <a href="/">Home</a> &gt; <span>{{ folder_name }}</span>
+    </div>
+    
+    <h1 class="section-title">{{ folder_name }}</h1>
+    
+    <div class="grid">
+        {% for video in videos %}
+        <div class="video-card">
+            <a href="/stream/{{ folder_name }}/{{ video.filename }}" class="video-link">
+                <div class="thumbnail-container">
+                    <img src="{{ video.thumbnail }}" alt="{{ video.name }}" class="thumbnail">
+                    <div class="duration-badge">--:--</div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">{{ video.name }}</h3>
+                    <p class="video-meta">{{ folder_name }}</p>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

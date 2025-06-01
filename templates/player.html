@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}{{ video_name }}{% endblock %}
+
+{% block content %}
+<div class="video-player-container">
+    <div class="navigation-buttons">
+        <a href="/?path={{ current_path }}" class="back-button">
+            <i class="fas fa-arrow-left"></i> Back to Folder
+        </a>
+        <a href="/" class="home-button">
+            <i class="fas fa-home"></i> Home
+        </a>
+    </div>
+    
+    <div class="video-wrapper">
+        <video controls autoplay class="video-player">
+            <source src="{{ video_url }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    
+    <h1 class="video-title">{{ video_name }}</h1>
+</div>
+{% endblock %}
